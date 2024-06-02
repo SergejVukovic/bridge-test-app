@@ -20,6 +20,8 @@ Route::get('/posts/{post_id}/comments/{comment_id}', [CommentController::class, 
 
 // Protected routes
 Route::group(['middleware' => 'auth:sanctum'], function () {
+    // Auth routes
+    Route::post('/logout', [AuthController::class, 'logout']);
     // User routes
     Route::get('/users', [UserController::class, 'index']);
     Route::get('/users/{id}', [UserController::class, 'show']);

@@ -59,4 +59,9 @@ class UserService
         }
         return $user->createToken('authToken')->plainTextToken;
     }
+
+    public function logout(): void
+    {
+        $this->current_user->tokens()->delete();
+    }
 }
